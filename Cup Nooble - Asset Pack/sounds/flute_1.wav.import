@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://daf52567x1tuw"
+path="res://.godot/imported/flute_1.wav-34586c90902b7043fa265367315c5968.sample"
+
+[deps]
+
+source_file="res://Cup Nooble - Asset Pack/sounds/flute_1.wav"
+dest_files=["res://.godot/imported/flute_1.wav-34586c90902b7043fa265367315c5968.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

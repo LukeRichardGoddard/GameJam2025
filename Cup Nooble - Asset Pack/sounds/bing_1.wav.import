@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://btl1eh04xhuo3"
+path="res://.godot/imported/bing_1.wav-77b47d3b70b5147918be46ac4d84679f.sample"
+
+[deps]
+
+source_file="res://Cup Nooble - Asset Pack/sounds/bing_1.wav"
+dest_files=["res://.godot/imported/bing_1.wav-77b47d3b70b5147918be46ac4d84679f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cdqj6axd3bwk"
+path="res://.godot/imported/punch_5.wav-07272c262ea9b2cba6f6216b54f1b075.sample"
+
+[deps]
+
+source_file="res://Cup Nooble - Asset Pack/sounds/punch_5.wav"
+dest_files=["res://.godot/imported/punch_5.wav-07272c262ea9b2cba6f6216b54f1b075.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
