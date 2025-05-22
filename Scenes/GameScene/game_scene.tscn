@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://bxrtg8g0ps43r"]
+[gd_scene load_steps=9 format=4 uid="uid://bxrtg8g0ps43r"]
 
 [ext_resource type="Texture2D" uid="uid://cpj7i4nlm576u" path="res://Cup Nooble - Asset Pack/tiles/Grass_Tile_Layers.png" id="1_5wxxg"]
 [ext_resource type="PackedScene" uid="uid://ccwnnfvhrmkmc" path="res://Scenes/Player/player.tscn" id="1_g2fpc"]
 [ext_resource type="Texture2D" uid="uid://caym6l4suvfxp" path="res://Cup Nooble - Asset Pack/tiles/Soil_Ground_Tiles.png" id="1_gpfpq"]
+[ext_resource type="PackedScene" uid="uid://bca87ptrvwtps" path="res://Scenes/Bunny/bunny.tscn" id="4_7xvag"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dmxmd"]
 resource_name = "Dirt"
@@ -331,3 +332,6 @@ tile_set = SubResource("TileSet_ac736")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(5, 5)
+
+[node name="Bunny" parent="." instance=ExtResource("4_7xvag")]
+position = Vector2(77, -13)
