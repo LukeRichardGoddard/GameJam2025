@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://bxrtg8g0ps43r"]
+[gd_scene load_steps=13 format=4 uid="uid://bxrtg8g0ps43r"]
 
 [ext_resource type="Texture2D" uid="uid://cpj7i4nlm576u" path="res://Cup Nooble - Asset Pack/tiles/Grass_Tile_Layers.png" id="1_5wxxg"]
 [ext_resource type="PackedScene" uid="uid://ccwnnfvhrmkmc" path="res://Scenes/Player/player.tscn" id="1_g2fpc"]
 [ext_resource type="Texture2D" uid="uid://caym6l4suvfxp" path="res://Cup Nooble - Asset Pack/tiles/Soil_Ground_Tiles.png" id="1_gpfpq"]
 [ext_resource type="Texture2D" uid="uid://di8xqo7r0vwxc" path="res://Graphics/ArMM1998/Overworld.png" id="3_i7ki6"]
 [ext_resource type="PackedScene" uid="uid://bca87ptrvwtps" path="res://Scenes/Bunny/bunny.tscn" id="4_7xvag"]
+[ext_resource type="PackedScene" uid="uid://b8x8isbxo6ivd" path="res://Scenes/SceneEntrances/scene_entrance.tscn" id="6_lhg8j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dmxmd"]
 resource_name = "Dirt"
@@ -937,6 +938,12 @@ texture = ExtResource("3_i7ki6")
 5:16/0 = 0
 5:16/0/y_sort_origin = 10
 5:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, -16, 12, 16, 12, 16, -8)
+7:27/size_in_atlas = Vector2i(2, 2)
+7:27/0 = 0
+31:3/size_in_atlas = Vector2i(2, 2)
+31:3/0 = 0
+6:0/size_in_atlas = Vector2i(5, 5)
+6:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_i8s53"]
 physics_layer_0/collision_layer = 1
@@ -954,7 +961,7 @@ tile_set = SubResource("TileSet_ac736")
 
 [node name="ObstacleLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD4//n/AgAFABAAAAADAAAAAgAFABAAAAD2//3/AgAFABAAAAD2//7/AgAFABAAAAD2////AgAFABAAAAD2/wAAAgAFABAAAAD2//v/AgAFABAAAAD2//n/AgAFABAAAAD6//n/AgAFABAAAAA=")
+tile_map_data = PackedByteArray("AAD4//n/AgAFABAAAAADAAAAAgAFABAAAAD2//3/AgAFABAAAAD2//7/AgAFABAAAAD2////AgAFABAAAAD2/wAAAgAFABAAAAD2//v/AgAFABAAAAD2//n/AgAFABAAAAD6//n/AgAFABAAAAAPAPj/AgAGAAAAAAD7////AgAHABsAAAA=")
 tile_set = SubResource("TileSet_i8s53")
 
 [node name="Player" parent="ObstacleLayer" instance=ExtResource("1_g2fpc")]
@@ -965,3 +972,6 @@ zoom = Vector2(5, 5)
 
 [node name="Bunny" parent="ObstacleLayer" instance=ExtResource("4_7xvag")]
 position = Vector2(77, -13)
+
+[node name="SceneEntrance" parent="." instance=ExtResource("6_lhg8j")]
+position = Vector2(-72, -8)

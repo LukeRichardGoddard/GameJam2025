@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8x8isbxo6ivd"]
+
+[ext_resource type="Script" path="res://Scenes/SceneEntrances/scene_entrance.gd" id="1_eyhgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6rtl"]
+
+[node name="SceneEntrance" type="Area2D"]
+script = ExtResource("1_eyhgd")
+next_scene = "res://Scenes/CaveScene/cave_scene.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e6rtl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
