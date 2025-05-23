@@ -940,6 +940,7 @@ texture = ExtResource("3_i7ki6")
 5:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, -16, 12, 16, 12, 16, -8)
 7:27/size_in_atlas = Vector2i(2, 2)
 7:27/0 = 0
+7:27/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, 12, -16, 12, -16, -16, 16, -16, 16, 12, 12, 12, 12, -8, -12, -8)
 31:3/size_in_atlas = Vector2i(2, 2)
 31:3/0 = 0
 6:0/size_in_atlas = Vector2i(5, 5)
@@ -975,3 +976,4 @@ position = Vector2(77, -13)
 
 [node name="SceneEntrance" parent="." instance=ExtResource("6_lhg8j")]
 position = Vector2(-72, -8)
+player_spawn_position = Vector2(0, 52)

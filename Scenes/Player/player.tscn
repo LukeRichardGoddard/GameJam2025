@@ -252,4 +252,4 @@ shape = SubResource("CapsuleShape2D_tfey6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_q6ka3")
-animation = &"move_upright"
+animation = &"move_down"
