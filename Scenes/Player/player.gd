@@ -4,7 +4,7 @@ class_name Player
 @export var move_speed: float = 100
 
 func _ready() -> void:
-	pass 
+	position = SceneManager.player_spawn_position 
 
 
 func _process(delta: float) -> void:
