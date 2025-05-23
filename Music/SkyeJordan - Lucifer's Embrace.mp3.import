@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjwpbnqakeftg"
+path="res://.godot/imported/SkyeJordan - Lucifer's Embrace.mp3-a192f50867f8640d2e7459efcbc6dc31.mp3str"
+
+[deps]
+
+source_file="res://Music/SkyeJordan - Lucifer's Embrace.mp3"
+dest_files=["res://.godot/imported/SkyeJordan - Lucifer's Embrace.mp3-a192f50867f8640d2e7459efcbc6dc31.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
