@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dwjvxad5c8rlw" path="res://Cup Nooble - Asset Pack/sprite sheets/1_character_spritesheet_by-cupnooble.png" id="1_u58df"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tfey6"]
-radius = 6.0
-height = 22.0
+radius = 5.0
+height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jul6"]
 atlas = ExtResource("1_u58df")
