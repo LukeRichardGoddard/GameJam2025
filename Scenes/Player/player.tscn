@@ -281,6 +281,7 @@ shape = SubResource("RectangleShape2D_8goee")
 debug_color = Color(0.882826, 0.0754501, 0.788736, 0.42)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 855.0

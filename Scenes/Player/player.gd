@@ -11,7 +11,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	%CarrotLabel.text = str(SceneManager.carrot_count)
 	%BunnyLabel.text = str(SceneManager.bunny_count)
-	
+	if not $CanvasLayer.visible:
+		$CanvasLayer.visible = true
+		
 	var move_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	velocity = move_vector * move_speed
