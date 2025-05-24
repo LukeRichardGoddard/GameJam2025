@@ -113,5 +113,4 @@ chest_name = "cave_chest2"
 process_mode = 3
 stream = ExtResource("6_6o7dp")
 volume_db = -12.0
-autoplay = true
 parameters/looping = true

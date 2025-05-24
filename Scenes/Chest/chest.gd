@@ -12,16 +12,24 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and can_interact:
-		if not is_open:
+		
+		if not $CanvasLayer.visible and not is_open:
 			open_chest()
+			$CanvasLayer.visible = true
+			await get_tree().create_timer(0.1).timeout
+			get_tree().paused = true
+		else:
+			$CanvasLayer.visible = false
+			get_tree().paused = false
 
 func open_chest():
+	SceneManager.carrot_count += 3
+	SceneManager.opened_chests.append(chest_name)
+	print(SceneManager.opened_chests)
 	is_open = true
 	$AnimatedSprite2D.play("open")
 	$Carrots.visible = true
 	$Timer.start(3)
-	SceneManager.opened_chests.append(chest_name)
-	print(SceneManager.opened_chests)
 
 
 func _on_timer_timeout() -> void:

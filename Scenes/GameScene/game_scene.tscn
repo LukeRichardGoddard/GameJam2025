@@ -1000,7 +1000,6 @@ player_spawn_position = Vector2(0, 52)
 process_mode = 3
 stream = ExtResource("7_ts0q8")
 volume_db = -12.0
-autoplay = true
 parameters/looping = true
 
 [editable path="ObstacleLayer/Bunny"]
