@@ -249,11 +249,13 @@ font_size = 28
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Bunny" type="StaticBody2D" groups=["interactable"]]
+[node name="Bunny" type="CharacterBody2D" groups=["interactable"]]
 process_mode = 3
+motion_mode = 1
 script = ExtResource("1_j457d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
 shape = SubResource("CapsuleShape2D_txv1u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

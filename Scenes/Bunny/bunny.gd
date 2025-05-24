@@ -1,10 +1,30 @@
-extends StaticBody2D
+extends CharacterBody2D
 class_name HungryBunny
 @export var bunny_name: String
 
 var has_been_fed: bool = false
 var can_interact: bool = false
 var carrot_tween = create_tween().set_loops()
+
+var destination: Vector2
+var dist_to_dest: Vector2
+var direction_normal: Vector2
+
+func _physics_process(_delta: float) -> void:
+	if destination:
+		dist_to_dest = destination - global_position
+		direction_normal = dist_to_dest.normalized()
+		velocity = direction_normal * 100 * _delta
+		if dist_to_dest.x * dist_to_dest.y < 3:
+			randomiseDestination()
+	else:
+		randomiseDestination()
+	
+	move_and_slide()
+
+func randomiseDestination():
+	randomize()
+	destination = Vector2(randi() % 100 - 50, randi() % 100 - 50)
 
 func _ready() -> void:
 	carrot_tween.tween_property($NeedsCarrot, "modulate:a", 0, 2).from_current()

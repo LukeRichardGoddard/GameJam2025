@@ -10,7 +10,7 @@ func _ready() -> void:
 		$AnimatedSprite2D.play("open")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and can_interact:
 		
 		if not $CanvasLayer.visible and not is_open:

@@ -5,5 +5,5 @@ func _ready() -> void:
 	$Player/AnimatedSprite2D.play("move_up") 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
