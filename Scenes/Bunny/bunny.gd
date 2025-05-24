@@ -4,9 +4,10 @@ class_name HungryBunny
 
 var has_been_fed: bool = false
 var can_interact: bool = false
+var carrot_tween = create_tween().set_loops()
 
 func _ready() -> void:
-	pass
+	carrot_tween.tween_property($NeedsCarrot, "modulate:a", 0, 2).from_current()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and can_interact:
@@ -39,6 +40,7 @@ func feed_bunny():
 	SceneManager.carrot_count -= 1
 	SceneManager.bunny_count -= 1
 	$NeedsCarrot.visible = false
+	carrot_tween.stop()
 	has_been_fed = true
 	if SceneManager.bunny_count == 0:
 		SceneManager.has_quest = true
