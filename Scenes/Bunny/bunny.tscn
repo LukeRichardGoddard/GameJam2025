@@ -250,6 +250,7 @@ outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Bunny" type="StaticBody2D" groups=["interactable"]]
+process_mode = 3
 script = ExtResource("1_j457d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -267,7 +268,7 @@ texture = ExtResource("3_32mm5")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="DialogBoxTexture" type="TextureRect" parent="CanvasLayer"]
 offset_left = 252.0
 offset_top = 416.0
 offset_right = 572.0
@@ -275,7 +276,7 @@ offset_bottom = 496.0
 scale = Vector2(2, 2)
 texture = ExtResource("3_7fir5")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="DialogLabel" type="Label" parent="CanvasLayer"]
 offset_left = 274.0
 offset_top = 429.0
 offset_right = 379.0

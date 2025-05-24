@@ -250,7 +250,9 @@ outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="BrownBunny" type="StaticBody2D" groups=["interactable"]]
+process_mode = 3
 script = ExtResource("1_iipio")
+dialog_lines = Array[String](["We have so many hungry bunnies!", "Can you please get some carrots to feed them?"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_txv1u")
@@ -269,7 +271,7 @@ texture = ExtResource("3_aox8h")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="DialogBoxTexture" type="TextureRect" parent="CanvasLayer"]
 offset_left = 252.0
 offset_top = 416.0
 offset_right = 572.0
@@ -277,7 +279,7 @@ offset_bottom = 496.0
 scale = Vector2(2, 2)
 texture = ExtResource("3_e4687")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="DialogLabel" type="Label" parent="CanvasLayer"]
 offset_left = 274.0
 offset_top = 429.0
 offset_right = 673.0
