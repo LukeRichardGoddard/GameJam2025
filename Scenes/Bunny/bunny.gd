@@ -1,4 +1,6 @@
 extends StaticBody2D
+class_name HungryBunny
+@export var bunny_name: String
 
 var has_been_fed: bool = false
 var can_interact: bool = false
