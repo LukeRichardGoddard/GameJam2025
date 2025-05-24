@@ -36,7 +36,7 @@ size = Vector2(16, 14)
 [node name="Chest" type="StaticBody2D" groups=["interactable"]]
 script = ExtResource("1_8u4wl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interactable"]]
 sprite_frames = SubResource("SpriteFrames_6v8ef")
 animation = &"closed"
 autoplay = "closed"

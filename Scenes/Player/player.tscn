@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ccwnnfvhrmkmc"]
+[gd_scene load_steps=30 format=3 uid="uid://ccwnnfvhrmkmc"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_he0an"]
 [ext_resource type="Texture2D" uid="uid://dwjvxad5c8rlw" path="res://Cup Nooble - Asset Pack/sprite sheets/1_character_spritesheet_by-cupnooble.png" id="1_u58df"]
@@ -242,6 +242,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8goee"]
+size = Vector2(10, 10)
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_he0an")
@@ -252,4 +255,14 @@ shape = SubResource("CapsuleShape2D_tfey6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_q6ka3")
-animation = &"move_down"
+animation = &"move_downright"
+
+[node name="InteractArea2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D"]
+shape = SubResource("RectangleShape2D_8goee")
+debug_color = Color(0.882826, 0.0754501, 0.788736, 0.42)
+
+[connection signal="body_entered" from="InteractArea2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="InteractArea2D" to="." method="_on_area_2d_body_exited"]

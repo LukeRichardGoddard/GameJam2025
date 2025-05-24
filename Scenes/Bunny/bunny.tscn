@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txv1u"]
 radius = 7.0
-height = 18.0
+height = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7wf1"]
 atlas = ExtResource("1_iyeeg")
@@ -242,7 +242,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bunny" type="CharacterBody2D"]
+[node name="Bunny" type="StaticBody2D"]
 script = ExtResource("1_j457d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -250,5 +250,5 @@ shape = SubResource("CapsuleShape2D_txv1u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k7klp")
-animation = &"move_right"
-frame_progress = 0.744343
+animation = &"move_down"
+autoplay = "move_down"
