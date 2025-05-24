@@ -23,9 +23,13 @@ func _process(delta: float) -> void:
 			get_tree().paused = false
 
 func open_chest():
-	SceneManager.carrot_count += 3
+	var carrots_found = randi() % 5
+	SceneManager.carrot_count += carrots_found
 	SceneManager.opened_chests.append(chest_name)
-	print(SceneManager.opened_chests)
+	if carrots_found == 1:
+		$CanvasLayer/DialogLabel.text = "You found a carrot!"
+	else:
+		$CanvasLayer/DialogLabel.text = "You found " + str(carrots_found) + " carrots!"
 	is_open = true
 	$AnimatedSprite2D.play("open")
 	$Carrots.visible = true
