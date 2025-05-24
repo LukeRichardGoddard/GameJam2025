@@ -1,7 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://ccwnnfvhrmkmc"]
+[gd_scene load_steps=36 format=3 uid="uid://ccwnnfvhrmkmc"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_he0an"]
 [ext_resource type="Texture2D" uid="uid://dwjvxad5c8rlw" path="res://Cup Nooble - Asset Pack/sprite sheets/1_character_spritesheet_by-cupnooble.png" id="1_u58df"]
+[ext_resource type="Texture2D" uid="uid://byxilfkxmilet" path="res://Cup Nooble - Asset Pack/ui/Inventory_Light_Herat_Spritesheet.png" id="3_5mjal"]
+[ext_resource type="Texture2D" uid="uid://hwoys4n4uj7u" path="res://Graphics/magdum/carrot_upright_16.png" id="4_rtvp1"]
+[ext_resource type="Texture2D" uid="uid://dbbv46t2cqpwr" path="res://Cup Nooble - Asset Pack/sprite sheets/Teemo_spritesheet_by-cupnooble.png" id="5_u3r4d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tfey6"]
 radius = 5.0
@@ -245,6 +248,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8goee"]
 size = Vector2(10, 10)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vql0n"]
+atlas = ExtResource("3_5mjal")
+region = Rect2(0, 305, 112, 31)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hm6s0"]
+font_size = 42
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdao5"]
+atlas = ExtResource("5_u3r4d")
+region = Rect2(64, 16, 16, 16)
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_he0an")
@@ -263,6 +279,57 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D"]
 shape = SubResource("RectangleShape2D_8goee")
 debug_color = Color(0.882826, 0.0754501, 0.788736, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 855.0
+offset_right = 1135.0
+offset_bottom = 77.0
+
+[node name="PanelTextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.5, 2)
+texture = SubResource("AtlasTexture_vql0n")
+flip_v = true
+
+[node name="CarrotTextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 11.0
+offset_right = 64.0
+offset_bottom = 51.0
+texture = ExtResource("4_rtvp1")
+
+[node name="CarrotLabel" type="Label" parent="CanvasLayer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 72.0
+offset_top = 2.0
+offset_right = 120.0
+offset_bottom = 60.0
+text = "99"
+label_settings = SubResource("LabelSettings_hm6s0")
+
+[node name="BunnyTextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 11.0
+offset_right = 193.0
+offset_bottom = 51.0
+texture = SubResource("AtlasTexture_hdao5")
+
+[node name="BunnyLabel" type="Label" parent="CanvasLayer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 201.0
+offset_top = 2.0
+offset_right = 249.0
+offset_bottom = 60.0
+text = "99"
+label_settings = SubResource("LabelSettings_hm6s0")
 
 [connection signal="body_entered" from="InteractArea2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="InteractArea2D" to="." method="_on_area_2d_body_exited"]

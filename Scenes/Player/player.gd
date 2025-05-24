@@ -3,11 +3,15 @@ class_name Player
 
 @export var move_speed: float = 100
 
+
 func _ready() -> void:
 	position = SceneManager.player_spawn_position 
 
 
 func _process(_delta: float) -> void:
+	%CarrotLabel.text = str(SceneManager.carrot_count)
+	%BunnyLabel.text = str(SceneManager.bunny_count)
+	
 	var move_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	velocity = move_vector * move_speed
