@@ -102,3 +102,8 @@ player_spawn_position = Vector2(-75, 20)
 
 [node name="Chest" parent="." instance=ExtResource("5_buwtv")]
 position = Vector2(-56, -24)
+chest_name = "cave_chest"
+
+[node name="Chest2" parent="." instance=ExtResource("5_buwtv")]
+position = Vector2(58, -24)
+chest_name = "cave_chest2"
