@@ -4,7 +4,7 @@ var can_interact: bool = false
 var is_open: bool = false
 
 func _ready() -> void:
-	pass
+	$Carrots.visible = false
 
 
 func _process(delta: float) -> void:
@@ -15,3 +15,9 @@ func _process(delta: float) -> void:
 func open_chest():
 	is_open = true
 	$AnimatedSprite2D.play("open")
+	$Carrots.visible = true
+	$Timer.start(3)
+
+
+func _on_timer_timeout() -> void:
+	$Carrots.visible = false

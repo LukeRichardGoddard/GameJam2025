@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyk2prp2cj4ie"]
+[gd_scene load_steps=8 format=3 uid="uid://dyk2prp2cj4ie"]
 
 [ext_resource type="Texture2D" uid="uid://dym517fqjcy3x" path="res://Cup Nooble - Asset Pack/objects/Chest.png" id="1_0fylm"]
 [ext_resource type="Script" path="res://Scenes/Chest/chest.gd" id="1_8u4wl"]
+[ext_resource type="Texture2D" uid="uid://bbbowwfhf25br" path="res://Graphics/submission_daneeklu/tilesets/plants.png" id="3_bln81"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_skxgh"]
 atlas = ExtResource("1_0fylm")
@@ -38,9 +39,21 @@ script = ExtResource("1_8u4wl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interactable"]]
 sprite_frames = SubResource("SpriteFrames_6v8ef")
-animation = &"closed"
+animation = &"open"
 autoplay = "closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_k3svw")
+
+[node name="Carrots" type="Sprite2D" parent="."]
+position = Vector2(0, -23)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_bln81")
+region_enabled = true
+region_rect = Rect2(64, 350, 29, 35)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
