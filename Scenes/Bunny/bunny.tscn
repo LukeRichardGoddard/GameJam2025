@@ -248,7 +248,7 @@ font_size = 28
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Bunny" type="StaticBody2D"]
+[node name="Bunny" type="StaticBody2D" groups=["interactable"]]
 script = ExtResource("1_j457d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -257,7 +257,6 @@ shape = SubResource("CapsuleShape2D_txv1u")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k7klp")
 animation = &"move_down"
-autoplay = "move_down"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

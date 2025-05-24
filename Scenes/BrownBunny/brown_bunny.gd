@@ -1,10 +1,11 @@
 extends StaticBody2D
 
-var has_been_fed: bool = false
+var has_quest: bool = true
 var can_interact: bool = false
 
 func _ready() -> void:
-	pass
+	if has_quest:
+		$Exclamation.visible = true
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and can_interact:
@@ -12,3 +13,4 @@ func _process(_delta: float) -> void:
 			$CanvasLayer.visible = false
 		else:
 			$CanvasLayer.visible = true
+			$Exclamation.visible = false
