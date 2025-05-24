@@ -258,6 +258,7 @@ dialog_lines = Array[String](["We have so many hungry bunnies!", "Can you please
 shape = SubResource("CapsuleShape2D_txv1u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.639605, 0.417059, 0, 1)
 sprite_frames = SubResource("SpriteFrames_k7klp")
 animation = &"move_down"
 frame_progress = 0.000110878

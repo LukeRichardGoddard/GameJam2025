@@ -40,3 +40,5 @@ func feed_bunny():
 	SceneManager.bunny_count -= 1
 	$NeedsCarrot.visible = false
 	has_been_fed = true
+	if SceneManager.bunny_count == 0:
+		SceneManager.has_quest = true

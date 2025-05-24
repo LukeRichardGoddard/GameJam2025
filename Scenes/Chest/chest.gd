@@ -23,7 +23,8 @@ func _process(delta: float) -> void:
 			get_tree().paused = false
 
 func open_chest():
-	var carrots_found = randi() % 5
+	randomize()
+	var carrots_found = randi() % 4 + 1
 	SceneManager.carrot_count += carrots_found
 	SceneManager.opened_chests.append(chest_name)
 	if carrots_found == 1:
