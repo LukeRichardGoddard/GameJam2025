@@ -7,7 +7,7 @@ func _ready() -> void:
 	position = SceneManager.player_spawn_position 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var move_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	velocity = move_vector * move_speed

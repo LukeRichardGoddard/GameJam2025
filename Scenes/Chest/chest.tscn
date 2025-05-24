@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyk2prp2cj4ie"]
+
+[ext_resource type="Texture2D" uid="uid://dym517fqjcy3x" path="res://Cup Nooble - Asset Pack/objects/Chest.png" id="1_0fylm"]
+[ext_resource type="Script" path="res://Scenes/Chest/chest.gd" id="1_8u4wl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skxgh"]
+atlas = ExtResource("1_0fylm")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir1bl"]
+atlas = ExtResource("1_0fylm")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6v8ef"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skxgh")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir1bl")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3svw"]
+size = Vector2(16, 14)
+
+[node name="Chest" type="StaticBody2D" groups=["interactable"]]
+script = ExtResource("1_8u4wl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6v8ef")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_k3svw")
