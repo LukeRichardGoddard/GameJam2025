@@ -24,4 +24,5 @@ func _process(_delta: float) -> void:
 			$CanvasLayer.visible = false
 			get_tree().paused = false
 			dialog_index = 0
+			SceneManager.has_quest = false
 			
