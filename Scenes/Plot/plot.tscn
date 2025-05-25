@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://csk3oad27l7i3"]
+
+[ext_resource type="Script" path="res://Scenes/Plot/plot.gd" id="1_qmckd"]
+[ext_resource type="Texture2D" uid="uid://phlt5w82d6ml" path="res://Graphics/sufan02/pa2.png" id="1_wh22b"]
+[ext_resource type="Texture2D" uid="uid://hwoys4n4uj7u" path="res://Graphics/magdum/carrot_upright_16.png" id="3_fhf8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66q1n"]
+size = Vector2(10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6f10"]
+atlas = ExtResource("1_wh22b")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcivr"]
+atlas = ExtResource("1_wh22b")
+region = Rect2(28, 0, 14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eff4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6f10")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcivr")
+}],
+"loop": true,
+"name": &"ready",
+"speed": 5.0
+}]
+
+[node name="Plot" type="StaticBody2D" groups=["interactable"]]
+script = ExtResource("1_qmckd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_66q1n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eff4b")
+animation = &"ready"
+autoplay = "ready"
+
+[node name="Carrot" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -10)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_fhf8t")
+region_rect = Rect2(64, 350, 29, 35)
+
+[node name="GrowTimer" type="Timer" parent="."]
+
+[node name="ShortTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]
+[connection signal="timeout" from="ShortTimer" to="." method="_on_short_timer_timeout"]
