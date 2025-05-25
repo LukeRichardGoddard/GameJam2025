@@ -9,6 +9,8 @@ script = ExtResource("1_cfej8")
 
 [node name="Bunnies" type="Node" parent="."]
 
+[node name="Plots" type="Node" parent="."]
+
 [node name="Music" type="Node" parent="."]
 
 [node name="Outdoor" type="AudioStreamPlayer" parent="Music"]

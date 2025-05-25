@@ -987,14 +987,21 @@ position = Vector2(27, 1)
 
 [node name="Bunnies" type="Node" parent="ObstacleLayer"]
 
-[node name="Test" parent="ObstacleLayer" instance=ExtResource("8_6vm00")]
-position = Vector2(-2, 32)
-collision_layer = 4
-
 [node name="SceneEntrance" parent="." instance=ExtResource("6_lhg8j")]
 position = Vector2(-72, -8)
 player_spawn_position = Vector2(0, 52)
 
 [node name="NewBunnyTimer" type="Timer" parent="."]
+
+[node name="Plots" type="Node2D" parent="."]
+
+[node name="Plot" parent="Plots" instance=ExtResource("8_6vm00")]
+position = Vector2(-28, 50)
+
+[node name="Plot2" parent="Plots" instance=ExtResource("8_6vm00")]
+position = Vector2(-15, 50)
+
+[node name="Plot3" parent="Plots" instance=ExtResource("8_6vm00")]
+position = Vector2(-2, 50)
 
 [connection signal="timeout" from="NewBunnyTimer" to="." method="_on_new_bunny_timer_timeout"]

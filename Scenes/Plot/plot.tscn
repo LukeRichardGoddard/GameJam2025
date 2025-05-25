@@ -51,8 +51,8 @@ region_rect = Rect2(64, 350, 29, 35)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eff4b")
-animation = &"ready"
-autoplay = "ready"
+animation = &"empty"
+autoplay = "empty"
 
 [node name="GrowTimer" type="Timer" parent="."]
 
