@@ -4,6 +4,7 @@ class_name HungryBunny
 var has_been_fed: bool = false
 var can_interact: bool = false
 var carrot_tween = create_tween().set_loops()
+@export var speed: int = 500
 
 var is_spawning: bool = true
 var spawn_position: Vector2
@@ -17,7 +18,7 @@ func _physics_process(_delta: float) -> void:
 		dist_to_dest = destination - global_position
 		direction_normal = dist_to_dest.normalized()
 		if dist_to_dest.x > 2 and dist_to_dest.y > 2:
-			velocity = direction_normal * 500 * _delta
+			velocity = direction_normal * speed * _delta
 		else:
 			velocity = Vector2.ZERO
 	else:
@@ -26,11 +27,11 @@ func _physics_process(_delta: float) -> void:
 
 func randomiseDestination():
 	randomize()
-	destination = Vector2(randi() % 200 + 50, randi() % 100 - 50)
+	destination = Vector2(randi() % 16 * 10, randi() % 16 * 5)
 	
 func randomisePosition():
 	randomize()
-	position = Vector2(randi() % 200 + 50, randi() % 100 - 50)
+	position = Vector2(randi() % 16 * 10, randi() % 16 * 5)
 
 func _ready() -> void:
 	carrot_tween.tween_property($NeedsCarrot, "modulate:a", 0, 2).from_current()
@@ -75,5 +76,5 @@ func feed_bunny():
 
 func _on_timer_timeout() -> void:
 	randomiseDestination()
-	$Timer.wait_time = randf() * 3.0
+	$Timer.wait_time = randf() * 2.0
 	$Timer.start()

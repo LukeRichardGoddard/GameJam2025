@@ -20,15 +20,15 @@ func _process(_delta: float) -> void:
 
 func new_bunny():
 	var new_bunny = bunny_scene.instantiate()
-	new_bunny.position = Vector2(randi() % 200 + 50, randi() % 100 - 50)
+	new_bunny.position = Vector2(randi() % 16 * 10, randi() % 16 * 5)
 	new_bunny.spawn_position = new_bunny.position
 	new_bunny.name = "Bunny" + str(SceneManager.bunny_count)
-	SceneManager.bunny_node.add_child(new_bunny)
+	SceneManager.bunnies.add_child(new_bunny)
 	SceneManager.bunny_count += 1
 
 func bunny_loader():
-	if not SceneManager.bunny_node.get_child_count() == 0:
-		for i in SceneManager.bunny_node.get_children():
+	if not SceneManager.bunnies.get_child_count() == 0:
+		for i in SceneManager.bunnies.get_children():
 			i.position = i.spawn_position
 			i.reparent($ObstacleLayer/Bunnies)
 	
@@ -36,8 +36,9 @@ func _exit_tree() -> void:
 	if not $ObstacleLayer/Bunnies.get_child_count() == 0:
 		for i in $ObstacleLayer/Bunnies.get_children():
 			i.spawn_position = i.position
+			#move somewhere far away to prevent collisions
 			i.position = Vector2(1000,1000)
-			i.reparent(SceneManager.bunny_node)
+			i.reparent(SceneManager.bunnies)
 	if SceneManager.music_on:
 		SceneManager.outdoor_music_time = SceneManager.outdoor_music.get_playback_position()
 		SceneManager.outdoor_music.stop()

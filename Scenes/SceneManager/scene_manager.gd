@@ -8,7 +8,7 @@ var start_game: bool = true
 var has_quest: bool = true
 var carrot_count: int = 0
 var bunny_count: int = 0
-var bunny_node
+var bunnies
 var outdoor_music: AudioStreamPlayer
 var outdoor_music_time: float = 0.0
 var cave_music: AudioStreamPlayer
@@ -18,6 +18,6 @@ var music_on: bool = false
 var sound_on: bool = true
 
 func _ready() -> void:
-	bunny_node = $Bunnies
+	bunnies = $Bunnies
 	outdoor_music = $Music/Outdoor
 	cave_music = $Music/Cave
