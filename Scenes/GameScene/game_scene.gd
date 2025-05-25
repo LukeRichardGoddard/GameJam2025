@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var user_interface: Control = $UserInterface
+
 const STARTING_BUNNIES: int = 3
 
 var bunny_scene: PackedScene = preload("res://Scenes/Bunny/bunny.tscn")

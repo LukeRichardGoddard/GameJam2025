@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfxd74vxxs38c"]
+
+[ext_resource type="Script" path="res://Scenes/UserInterface/user_interface.gd" id="1_4op5u"]
+[ext_resource type="Texture2D" uid="uid://dexwvlyecmxt" path="res://Graphics/submission_daneeklu/ui/scrollsandblocks.png" id="1_oebis"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ad5r"]
+atlas = ExtResource("1_oebis")
+region = Rect2(0, 128, 97, 96)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l7wf3"]
+
+[node name="UserInterface" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4op5u")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Panel" type="Control" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -48.0
+offset_right = 48.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 1)
+pivot_offset = Vector2(48, 0)
+texture = SubResource("AtlasTexture_3ad5r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "HUNGRY BUNNIES"
+label_settings = SubResource("LabelSettings_l7wf3")
+horizontal_alignment = 1
+
+[node name="MusicBox" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer/MusicBox"]
+layout_mode = 2
+text = "MUSIC"
+
+[node name="MusicButton" type="CheckButton" parent="MarginContainer/Panel/VBoxContainer/MusicBox"]
+layout_mode = 2
+
+[node name="SoundFXBox" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer/SoundFXBox"]
+layout_mode = 2
+text = "SOUND FX"
+
+[node name="SoundFXButton" type="CheckButton" parent="MarginContainer/Panel/VBoxContainer/SoundFXBox"]
+layout_mode = 2
