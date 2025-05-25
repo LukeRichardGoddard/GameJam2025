@@ -1,10 +1,11 @@
 extends CharacterBody2D
 class_name HungryBunny
-@export var bunny_name: String
 
 var has_been_fed: bool = false
 var can_interact: bool = false
 var carrot_tween = create_tween().set_loops()
+
+var spawn_position: Vector2
 
 var destination: Vector2
 var dist_to_dest: Vector2

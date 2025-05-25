@@ -6,10 +6,12 @@ var can_interact: bool = false
 var dialog_index: int = 0
 
 func _ready() -> void:
-	if SceneManager.has_quest:
-		$Exclamation.visible = true
+	pass
 
 func _process(_delta: float) -> void:
+	if SceneManager.has_quest:
+		$Exclamation.visible = true
+		
 	if Input.is_action_just_pressed("interact") and can_interact:
 		if SceneManager.bunny_count == 0:
 			dialog_lines = ["Thanks for feeding the\nbunnies!"]
