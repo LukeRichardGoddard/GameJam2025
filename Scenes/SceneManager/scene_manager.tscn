@@ -1,8 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgoc8mv31jkq8"]
+[gd_scene load_steps=4 format=3 uid="uid://dgoc8mv31jkq8"]
 
 [ext_resource type="Script" path="res://Scenes/SceneManager/scene_manager.gd" id="1_cfej8"]
+[ext_resource type="AudioStream" uid="uid://dgeggi4c5ntu" path="res://Music/outdoor.mp3" id="2_tamid"]
+[ext_resource type="AudioStream" uid="uid://d26ybfhb4u360" path="res://Music/cave.mp3" id="3_a2c0t"]
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource("1_cfej8")
 
 [node name="Bunnies" type="Node" parent="."]
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Outdoor" type="AudioStreamPlayer" parent="Music"]
+process_mode = 3
+stream = ExtResource("2_tamid")
+volume_db = -12.0
+parameters/looping = true
+
+[node name="Cave" type="AudioStreamPlayer" parent="Music"]
+process_mode = 3
+stream = ExtResource("3_a2c0t")
+volume_db = -12.0
+parameters/looping = true

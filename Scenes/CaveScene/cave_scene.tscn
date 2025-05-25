@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://c2soqxynyls6d"]
+[gd_scene load_steps=8 format=4 uid="uid://c2soqxynyls6d"]
 
 [ext_resource type="Script" path="res://Scenes/CaveScene/cave_scene.gd" id="1_dftix"]
 [ext_resource type="Texture2D" uid="uid://beuomcdqfy222" path="res://Graphics/ArMM1998/cave.png" id="1_gt0o2"]
 [ext_resource type="PackedScene" uid="uid://ccwnnfvhrmkmc" path="res://Scenes/Player/player.tscn" id="1_ory37"]
 [ext_resource type="PackedScene" uid="uid://b8x8isbxo6ivd" path="res://Scenes/SceneEntrances/scene_entrance.tscn" id="2_hlrnc"]
 [ext_resource type="PackedScene" uid="uid://dyk2prp2cj4ie" path="res://Scenes/Chest/chest.tscn" id="5_buwtv"]
-[ext_resource type="AudioStream" uid="uid://d26ybfhb4u360" path="res://Music/cave.mp3" id="6_6o7dp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ydjv"]
 texture = ExtResource("1_gt0o2")
@@ -117,9 +116,3 @@ chest_name = "cave_chest"
 [node name="Chest2" parent="." instance=ExtResource("5_buwtv")]
 position = Vector2(58, -24)
 chest_name = "cave_chest2"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("6_6o7dp")
-volume_db = -12.0
-parameters/looping = true
