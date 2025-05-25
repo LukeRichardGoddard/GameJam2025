@@ -8,6 +8,7 @@ var start_game: bool = true
 var has_quest: bool = true
 var carrot_count: int = 0
 var bunny_count: int = 0
+var total_bunny_count: int = 0
 var bunnies
 var outdoor_music: AudioStreamPlayer
 var outdoor_music_time: float = 0.0

@@ -1,6 +1,6 @@
 extends Node2D
 
-const STARTING_BUNNIES: int = 4
+const STARTING_BUNNIES: int = 3
 
 var bunny_scene: PackedScene = preload("res://Scenes/Bunny/bunny.tscn")
 
@@ -21,12 +21,13 @@ func _process(_delta: float) -> void:
 	pass
 
 func new_bunny():
-	var new_bunny = bunny_scene.instantiate()
-	new_bunny.position = Vector2(randi() % 16 * 10, randi() % 16 * 5)
-	new_bunny.spawn_position = new_bunny.position
-	new_bunny.name = "Bunny" + str(SceneManager.bunny_count)
-	$ObstacleLayer/Bunnies.add_child(new_bunny)
+	var instant_bunny = bunny_scene.instantiate()
+	instant_bunny.position = Vector2(randi() % 16 * 10, randi() % 16 * 5)
+	instant_bunny.spawn_position = instant_bunny.position
+	instant_bunny.name = "Bunny" + str(SceneManager.bunny_count)
+	$ObstacleLayer/Bunnies.add_child(instant_bunny)
 	SceneManager.bunny_count += 1
+	SceneManager.total_bunny_count += 1
 
 func bunny_loader():
 	if not SceneManager.bunnies.get_child_count() == 0:
@@ -47,4 +48,6 @@ func _exit_tree() -> void:
 
 
 func _on_new_bunny_timer_timeout() -> void:
-	new_bunny()
+	if SceneManager.bunny_count < 20 and SceneManager.bunny_count > 2:
+		new_bunny()
+		$NewBunnyTimer.wait_time = randf() * 10

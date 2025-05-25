@@ -69,12 +69,20 @@ func feed_bunny():
 	SceneManager.bunny_count -= 1
 	$NeedsCarrot.visible = false
 	carrot_tween.stop()
+	
+	var bunny_tween = create_tween()
+	bunny_tween.tween_property($AnimatedSprite2D, "modulate:a", 0, 3)
+	$RemoveTimer.start()
 	has_been_fed = true
 	if SceneManager.bunny_count == 0:
+		#add win condition here
 		SceneManager.has_quest = true
-
 
 func _on_timer_timeout() -> void:
 	randomiseDestination()
-	$Timer.wait_time = randf() * 2.0
-	$Timer.start()
+	$MoveTimer.wait_time = randf() * 2.0
+	$MoveTimer.start()
+
+
+func _on_remove_timer_timeout() -> void:
+	self.queue_free()
