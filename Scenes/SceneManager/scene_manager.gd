@@ -14,6 +14,9 @@ var outdoor_music_time: float = 0.0
 var cave_music: AudioStreamPlayer
 var cave_music_time: float = 0.0
 
+var music_on: bool = false
+var sound_on: bool = true
+
 func _ready() -> void:
 	bunny_node = $Bunnies
 	outdoor_music = $Music/Outdoor

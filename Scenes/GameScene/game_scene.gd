@@ -9,8 +9,9 @@ func _ready() -> void:
 		print(SceneManager.start_game)
 		SceneManager.start_game = false
 	bunny_loader()
-	SceneManager.outdoor_music.play()
-	SceneManager.outdoor_music.seek(SceneManager.outdoor_music_time)
+	if SceneManager.music_on:
+		SceneManager.outdoor_music.play()
+		SceneManager.outdoor_music.seek(SceneManager.outdoor_music_time)
 
 
 func _process(_delta: float) -> void:
@@ -38,5 +39,6 @@ func _exit_tree() -> void:
 			i.position = Vector2(1000,1000)
 			i.reparent(SceneManager.bunny_node)
 			print(i.name)
-	SceneManager.outdoor_music_time = SceneManager.outdoor_music.get_playback_position()
-	SceneManager.outdoor_music.stop()
+	if SceneManager.music_on:
+		SceneManager.outdoor_music_time = SceneManager.outdoor_music.get_playback_position()
+		SceneManager.outdoor_music.stop()
