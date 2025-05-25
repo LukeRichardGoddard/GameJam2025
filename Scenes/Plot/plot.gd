@@ -11,11 +11,14 @@ func _process(_delta: float) -> void:
 func get_carrot():
 	SceneManager.carrot_count += 1
 	carrot_ready = false
+	$AnimatedSprite2D.play("empty")
+	$Carrot.position = Vector2(0,0)
 	$Carrot.visible = true
+	var carrot_move = create_tween()
+	carrot_move.tween_property($Carrot, "position", Vector2(0,-8), 1)
 	$ShortTimer.start()
 	$GrowTimer.wait_time = randf() * 5.0
 	$GrowTimer.start()
-	$AnimatedSprite2D.play("empty")
 
 func _on_grow_timer_timeout() -> void:
 	carrot_ready = true

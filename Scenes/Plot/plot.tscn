@@ -41,17 +41,18 @@ script = ExtResource("1_qmckd")
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_66q1n")
 
+[node name="Carrot" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1.78814e-07, 8)
+rotation = -0.759218
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_fhf8t")
+region_rect = Rect2(64, 350, 29, 35)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eff4b")
 animation = &"ready"
 autoplay = "ready"
-
-[node name="Carrot" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -10)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_fhf8t")
-region_rect = Rect2(64, 350, 29, 35)
 
 [node name="GrowTimer" type="Timer" parent="."]
 
