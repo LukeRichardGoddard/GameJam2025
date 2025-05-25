@@ -994,3 +994,7 @@ collision_layer = 4
 [node name="SceneEntrance" parent="." instance=ExtResource("6_lhg8j")]
 position = Vector2(-72, -8)
 player_spawn_position = Vector2(0, 52)
+
+[node name="NewBunnyTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="NewBunnyTimer" to="." method="_on_new_bunny_timer_timeout"]

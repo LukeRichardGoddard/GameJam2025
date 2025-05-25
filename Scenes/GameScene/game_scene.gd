@@ -5,11 +5,13 @@ const STARTING_BUNNIES: int = 4
 var bunny_scene: PackedScene = preload("res://Scenes/Bunny/bunny.tscn")
 
 func _ready() -> void:
+	bunny_loader()
 	if SceneManager.start_game:
 		for i in STARTING_BUNNIES:
 			new_bunny()
 		SceneManager.start_game = false
-	bunny_loader()
+	$NewBunnyTimer.wait_time = 5.0
+	$NewBunnyTimer.start()
 	if SceneManager.music_on:
 		SceneManager.outdoor_music.play()
 		SceneManager.outdoor_music.seek(SceneManager.outdoor_music_time)
@@ -23,7 +25,7 @@ func new_bunny():
 	new_bunny.position = Vector2(randi() % 16 * 10, randi() % 16 * 5)
 	new_bunny.spawn_position = new_bunny.position
 	new_bunny.name = "Bunny" + str(SceneManager.bunny_count)
-	SceneManager.bunnies.add_child(new_bunny)
+	$ObstacleLayer/Bunnies.add_child(new_bunny)
 	SceneManager.bunny_count += 1
 
 func bunny_loader():
@@ -42,3 +44,7 @@ func _exit_tree() -> void:
 	if SceneManager.music_on:
 		SceneManager.outdoor_music_time = SceneManager.outdoor_music.get_playback_position()
 		SceneManager.outdoor_music.stop()
+
+
+func _on_new_bunny_timer_timeout() -> void:
+	new_bunny()
