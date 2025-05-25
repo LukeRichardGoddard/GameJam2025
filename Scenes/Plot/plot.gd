@@ -4,7 +4,7 @@ var can_interact: bool = false
 var carrot_ready: bool = false
 var time: float = 0.0
 @onready var grow_timer = get_node("GrowTimer")
-@export var spawn_position: Vector2
+var spawn_position: Vector2
 
 func _ready() -> void:
 	start_growing()
@@ -26,8 +26,8 @@ func get_carrot():
 	start_growing()
 	
 func start_growing():
-	$GrowTimer.wait_time = randf() * 50.0
-	$GrowTimer.start()
+	grow_timer.wait_time = randf() * 50.0
+	grow_timer.start()
 
 func _on_grow_timer_timeout() -> void:
 	carrot_ready = true

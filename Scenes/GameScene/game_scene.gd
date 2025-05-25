@@ -11,7 +11,7 @@ func _ready() -> void:
 		for i in STARTING_BUNNIES:
 			new_bunny()
 		SceneManager.start_game = false
-	$NewBunnyTimer.wait_time = 5.0
+	$NewBunnyTimer.wait_time = randf() * 30 + 5.0
 	$NewBunnyTimer.start()
 	if SceneManager.music_on:
 		SceneManager.outdoor_music.play()
