@@ -24,3 +24,7 @@ func _ready() -> void:
 	plots = $Plots
 	outdoor_music = $Music/Outdoor
 	cave_music = $Music/Cave
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
