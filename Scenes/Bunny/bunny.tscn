@@ -254,8 +254,18 @@ process_mode = 3
 motion_mode = 1
 script = ExtResource("1_j457d")
 
+[node name="BunnyCollider" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunnyCollider"]
+light_mask = 2
+visibility_layer = 3
+shape = SubResource("CapsuleShape2D_txv1u")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
+visibility_layer = 3
 shape = SubResource("CapsuleShape2D_txv1u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -286,3 +296,9 @@ offset_bottom = 487.0
 scale = Vector2(1.5, 1.5)
 text = "Hello, this is a test "
 label_settings = SubResource("LabelSettings_fepku")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+
+[connection signal="body_entered" from="BunnyCollider" to="." method="_on_bunny_collider_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
