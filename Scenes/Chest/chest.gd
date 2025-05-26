@@ -26,7 +26,7 @@ func open_chest():
 	if SceneManager.sound_on:
 		$Sounds/OpenChest.play()
 	randomize()
-	var carrots_found = randi() % 4 + 1
+	var carrots_found = randi() % 19 + 1
 	SceneManager.carrot_count += carrots_found
 	SceneManager.opened_chests.append(chest_name)
 	if carrots_found == 1:

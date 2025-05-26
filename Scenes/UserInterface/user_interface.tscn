@@ -45,13 +45,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = -48.0
-offset_right = 48.5
-offset_bottom = 48.0
+offset_left = -47.0
+offset_top = -93.0
+offset_right = 50.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 1)
+scale = Vector2(3, 2)
 pivot_offset = Vector2(48, 0)
 texture = SubResource("AtlasTexture_3ad5r")
 
@@ -93,6 +93,16 @@ text = "SOUND FX"
 [node name="SoundFXButton" type="CheckButton" parent="MarginContainer/Panel/VBoxContainer/SoundFXBox"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ControlsLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "MOVE: WASD, ARROWS
+INTERACT: SPACE, ENTER
+MENU: ESC"
+horizontal_alignment = 1
 
 [node name="Sounds" type="Node" parent="."]
 
