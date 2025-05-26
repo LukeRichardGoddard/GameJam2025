@@ -17,13 +17,42 @@ func _physics_process(_delta: float) -> void:
 	if destination:
 		dist_to_dest = destination - global_position
 		direction_normal = dist_to_dest.normalized()
-		if dist_to_dest.x > 2 and dist_to_dest.y > 2:
+		if (dist_to_dest.x > 2 or dist_to_dest.x < 2) and (dist_to_dest.y > 2 or dist_to_dest.y < 2) :
 			velocity = direction_normal * speed * _delta
+			animate_bunny()
 		else:
 			velocity = Vector2.ZERO
+			$AnimatedSprite2D.stop()
 	else:
 		randomiseDestination()
 	move_and_slide()
+
+func animate_bunny():
+	if velocity.x > 0 && velocity.y == 0:
+		$AnimatedSprite2D.play("move_right")
+		
+	elif velocity.x < 0 && velocity.y == 0:
+		$AnimatedSprite2D.play("move_left")
+		
+	elif velocity.x == 0 && velocity.y < 0:
+		$AnimatedSprite2D.play("move_up")
+		
+	elif velocity.x == 0 && velocity.y > 0:
+		$AnimatedSprite2D.play("move_down")
+	
+	elif velocity.x > 0 && velocity.y < 0:
+		$AnimatedSprite2D.play("move_upright")
+		
+	elif velocity.x < 0 && velocity.y < 0:
+		$AnimatedSprite2D.play("move_upleft")
+		
+	elif velocity.x > 0 && velocity.y > 0:
+		$AnimatedSprite2D.play("move_downright")
+		
+	elif velocity.x < 0 && velocity.y > 0:
+		$AnimatedSprite2D.play("move_downleft")
+	else:
+		$AnimatedSprite2D.stop()
 
 func randomiseDestination():
 	randomize()
