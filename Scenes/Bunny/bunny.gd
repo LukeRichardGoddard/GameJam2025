@@ -9,6 +9,9 @@ var carrot_tween = create_tween().set_loops()
 var is_spawning: bool = true
 var spawn_position: Vector2
 
+var current_position: Vector2
+var current_velocity: Vector2
+var velocity_norm: Vector2
 var destination: Vector2
 var dist_to_dest: Vector2
 var direction_normal: Vector2
@@ -28,6 +31,10 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func animate_bunny():
+	# TODO: add tolerance for cardinal direction movement
+	current_position = position
+	current_velocity = velocity
+	velocity_norm = velocity.normalized()
 	if velocity.x > 0 && velocity.y == 0:
 		$AnimatedSprite2D.play("move_right")
 		
