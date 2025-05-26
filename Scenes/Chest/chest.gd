@@ -23,6 +23,8 @@ func _process(_delta: float) -> void:
 			get_tree().paused = false
 
 func open_chest():
+	if SceneManager.sound_on:
+		$Sounds/OpenChest.play()
 	randomize()
 	var carrots_found = randi() % 4 + 1
 	SceneManager.carrot_count += carrots_found

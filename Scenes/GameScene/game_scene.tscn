@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bxrtg8g0ps43r"]
+[gd_scene load_steps=17 format=4 uid="uid://bxrtg8g0ps43r"]
 
 [ext_resource type="Script" path="res://Scenes/GameScene/game_scene.gd" id="1_3akrt"]
 [ext_resource type="Texture2D" uid="uid://cpj7i4nlm576u" path="res://Cup Nooble - Asset Pack/tiles/Grass_Tile_Layers.png" id="1_5wxxg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b8x8isbxo6ivd" path="res://Scenes/SceneEntrances/scene_entrance.tscn" id="6_lhg8j"]
 [ext_resource type="PackedScene" uid="uid://csk3oad27l7i3" path="res://Scenes/Plot/plot.tscn" id="8_6vm00"]
 [ext_resource type="PackedScene" uid="uid://cfxd74vxxs38c" path="res://Scenes/UserInterface/user_interface.tscn" id="9_jyfh7"]
+[ext_resource type="AudioStream" uid="uid://balg1ju8q2nuw" path="res://Sounds/EZduzziteh/pop7.wav" id="10_qosto"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dmxmd"]
 resource_name = "Dirt"
@@ -1009,5 +1010,10 @@ position = Vector2(-2, 50)
 
 [node name="UserInterface" parent="CanvasLayer" instance=ExtResource("9_jyfh7")]
 visible = false
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="BunnyEnter" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("10_qosto")
 
 [connection signal="timeout" from="NewBunnyTimer" to="." method="_on_new_bunny_timer_timeout"]

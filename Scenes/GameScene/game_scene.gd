@@ -67,5 +67,7 @@ func _exit_tree() -> void:
 
 func _on_new_bunny_timer_timeout() -> void:
 	if SceneManager.bunny_count < 20 and SceneManager.bunny_count > 2:
+		if SceneManager.sound_on:
+			$Sounds/BunnyEnter.play()
 		new_bunny()
 		$NewBunnyTimer.wait_time = randf() * 10

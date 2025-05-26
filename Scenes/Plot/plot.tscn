@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://csk3oad27l7i3"]
+[gd_scene load_steps=9 format=3 uid="uid://csk3oad27l7i3"]
 
 [ext_resource type="Script" path="res://Scenes/Plot/plot.gd" id="1_qmckd"]
 [ext_resource type="Texture2D" uid="uid://phlt5w82d6ml" path="res://Graphics/sufan02/pa2.png" id="1_wh22b"]
 [ext_resource type="Texture2D" uid="uid://hwoys4n4uj7u" path="res://Graphics/magdum/carrot_upright_16.png" id="3_fhf8t"]
+[ext_resource type="AudioStream" uid="uid://bgpe8j1jkfx8d" path="res://Sounds/EZduzziteh/pop4.wav" id="4_7g3l5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66q1n"]
 size = Vector2(10, 11)
@@ -58,6 +59,11 @@ autoplay = "empty"
 
 [node name="ShortTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="GetCarrot" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_7g3l5")
 
 [connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]
 [connection signal="timeout" from="ShortTimer" to="." method="_on_short_timer_timeout"]

@@ -13,6 +13,8 @@ func _process(_delta: float) -> void:
 		$Exclamation.visible = true
 		
 	if Input.is_action_just_pressed("interact") and can_interact:
+		if SceneManager.sound_on:
+			$Sounds/NextDialog.play()
 		if SceneManager.bunny_count == 0:
 			dialog_lines = ["Thanks for feeding the\nbunnies!"]
 		

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfxd74vxxs38c"]
+[gd_scene load_steps=6 format=3 uid="uid://cfxd74vxxs38c"]
 
 [ext_resource type="Script" path="res://Scenes/UserInterface/user_interface.gd" id="1_4op5u"]
 [ext_resource type="Texture2D" uid="uid://dexwvlyecmxt" path="res://Graphics/submission_daneeklu/ui/scrollsandblocks.png" id="1_oebis"]
+[ext_resource type="AudioStream" uid="uid://bgrmaueql0j2c" path="res://Sounds/NenadSimic/Menu Selection Click.wav" id="3_aeqdy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ad5r"]
 atlas = ExtResource("1_oebis")
@@ -78,6 +79,7 @@ layout_mode = 2
 text = "MUSIC"
 
 [node name="MusicButton" type="CheckButton" parent="MarginContainer/Panel/VBoxContainer/MusicBox"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="SoundFXBox" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
@@ -89,4 +91,13 @@ layout_mode = 2
 text = "SOUND FX"
 
 [node name="SoundFXButton" type="CheckButton" parent="MarginContainer/Panel/VBoxContainer/SoundFXBox"]
+unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Menu" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_aeqdy")
+
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/MusicBox/MusicButton" to="." method="_on_music_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/SoundFXBox/SoundFXButton" to="." method="_on_sound_fx_button_pressed"]

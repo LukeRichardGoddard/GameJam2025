@@ -15,6 +15,8 @@ func _process(_delta: float) -> void:
 			get_carrot()
 
 func get_carrot():
+	if SceneManager.sound_on:
+		$Sounds/GetCarrot.play()
 	SceneManager.carrot_count += 1
 	carrot_ready = false
 	$AnimatedSprite2D.play("empty")

@@ -46,12 +46,14 @@ func _process(_delta: float) -> void:
 				unpause_dialog()
 			else:
 				feed_bunny()
-				$CanvasLayer/DialogLabel.text = "Thanks for the carrot!"
-				pause_for_dialog()
+				#$CanvasLayer/DialogLabel.text = "Thanks for the carrot!"
+				#pause_for_dialog()
 		elif not has_been_fed:
 			if $CanvasLayer.visible:
 				unpause_dialog()
 			else:
+				if SceneManager.sound_on:
+					$Sounds/NextDialog.play()
 				$CanvasLayer/DialogLabel.text = "Can you please find a carrot\nfor me?"
 				pause_for_dialog()
 				
@@ -65,13 +67,15 @@ func unpause_dialog():
 	get_tree().paused = false
 	
 func feed_bunny():
+	if SceneManager.sound_on:
+		$Sounds/EatCarrot.play()
 	SceneManager.carrot_count -= 1
 	SceneManager.bunny_count -= 1
 	$NeedsCarrot.visible = false
 	carrot_tween.stop()
 	
 	var bunny_tween = create_tween()
-	bunny_tween.tween_property($AnimatedSprite2D, "modulate:a", 0, 3)
+	bunny_tween.tween_property($AnimatedSprite2D, "modulate:a", 0, 2)
 	$RemoveTimer.start()
 	has_been_fed = true
 	if SceneManager.bunny_count == 0:

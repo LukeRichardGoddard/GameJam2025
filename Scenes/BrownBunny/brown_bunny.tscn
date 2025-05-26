@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://blrc0ums1i8na"]
+[gd_scene load_steps=33 format=3 uid="uid://blrc0ums1i8na"]
 
 [ext_resource type="Script" path="res://Scenes/BrownBunny/brown_bunny.gd" id="1_iipio"]
 [ext_resource type="Texture2D" uid="uid://dcbge5mp835gc" path="res://Cup Nooble - Asset Pack/sprite sheets/Brown_Teemo.png" id="2_vyhot"]
 [ext_resource type="Texture2D" uid="uid://dh6ipt6ruhqe4" path="res://Graphics/ArcaneEchidna/Exclamation.png" id="3_aox8h"]
 [ext_resource type="Texture2D" uid="uid://dj6u73txcejgo" path="res://Graphics/CharlesGabriel/dialog_box_alpha.png" id="3_e4687"]
+[ext_resource type="AudioStream" uid="uid://bgrmaueql0j2c" path="res://Sounds/NenadSimic/Menu Selection Click.wav" id="5_ldhjt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txv1u"]
 radius = 7.0
@@ -289,3 +290,8 @@ scale = Vector2(1.5, 1.5)
 text = "Can you feed carrots to all of the bunnies?"
 label_settings = SubResource("LabelSettings_fepku")
 autowrap_mode = 3
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="NextDialog" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_ldhjt")
