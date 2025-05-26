@@ -78,16 +78,13 @@ func _process(_delta: float) -> void:
 		if has_been_fed and $CanvasLayer.visible:
 			unpause_dialog()
 		elif SceneManager.carrot_count > 0 and not has_been_fed:
-			if $CanvasLayer.visible:
-				unpause_dialog()
-			else:
-				feed_bunny()
+			feed_bunny()
 		elif not has_been_fed:
+			if SceneManager.sound_on:
+				$Sounds/NextDialog.play()
 			if $CanvasLayer.visible:
 				unpause_dialog()
 			else:
-				if SceneManager.sound_on:
-					$Sounds/NextDialog.play()
 				$CanvasLayer/DialogLabel.text = "Can you please find a carrot\nfor me?"
 				pause_for_dialog()
 				

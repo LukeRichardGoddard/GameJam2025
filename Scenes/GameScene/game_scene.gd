@@ -20,6 +20,7 @@ func _ready() -> void:
 		for i in STARTING_BUNNIES:
 			new_bunny()
 		SceneManager.start_game = false
+		$ObstacleLayer/Player.position = Vector2(28,-37)
 		user_interface.open_menu()
 	$NewBunnyTimer.wait_time = INITIAL_BUNNY_WAIT_TIME
 	$NewBunnyTimer.start()
