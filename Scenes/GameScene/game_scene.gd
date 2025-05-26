@@ -14,8 +14,10 @@ const BUNNY_CRITICAL_MASS: int = 42
 var bunny_scene: PackedScene = preload("res://Scenes/Bunny/bunny.tscn")
 
 func _ready() -> void:
-	bunny_loader()
-	plot_loader()
+	if not SceneManager.restarting:
+		bunny_loader()
+		plot_loader()
+		SceneManager.restarting = false
 	if SceneManager.start_game:
 		for i in STARTING_BUNNIES:
 			new_bunny()
@@ -24,6 +26,7 @@ func _ready() -> void:
 		user_interface.open_menu()
 	$NewBunnyTimer.wait_time = INITIAL_BUNNY_WAIT_TIME
 	$NewBunnyTimer.start()
+	SceneManager.play_timer.start()
 	if SceneManager.music_on:
 		SceneManager.outdoor_music.play()
 		SceneManager.outdoor_music.seek(SceneManager.outdoor_music_time)
@@ -32,6 +35,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug_add_bunny"):
 		new_bunny()
+	
 
 func new_bunny():
 	var instant_bunny = bunny_scene.instantiate()

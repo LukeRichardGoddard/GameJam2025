@@ -109,7 +109,9 @@ func feed_bunny():
 	$RemoveTimer.start()
 	has_been_fed = true
 	if SceneManager.bunny_count == 0:
-		#add win condition here
+		SceneManager.game_won = true
+		SceneManager.timer_running = false
+		SceneManager.end_screen.visible = true
 		if SceneManager.sound_on:
 			$Sounds/Won.play()
 		SceneManager.has_quest = true

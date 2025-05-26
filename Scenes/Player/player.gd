@@ -5,53 +5,55 @@ class_name Player
 
 
 func _ready() -> void:
-	position = SceneManager.player_spawn_position 
-
+	position = SceneManager.player_spawn_position  
 
 func _process(_delta: float) -> void:
 	%CarrotLabel.text = str(SceneManager.carrot_count)
 	%BunnyLabel.text = str(SceneManager.bunny_count)
+	%TimerLabel.text = SceneManager.get_current_time()
 	if not $CanvasLayer.visible:
 		$CanvasLayer.visible = true
 		
-	var move_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
-	velocity = move_vector * move_speed
-	
-	if velocity.x > 0 && velocity.y == 0:
-		$AnimatedSprite2D.play("move_right")
-		$InteractArea2D.position = Vector2(6,0)
+	if not SceneManager.game_won:
 		
-	elif velocity.x < 0 && velocity.y == 0:
-		$AnimatedSprite2D.play("move_left")
-		$InteractArea2D.position = Vector2(-6,0)
+		var move_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		
-	elif velocity.x == 0 && velocity.y < 0:
-		$AnimatedSprite2D.play("move_up")
-		$InteractArea2D.position = Vector2(0,-8)
+		velocity = move_vector * move_speed
 		
-	elif velocity.x == 0 && velocity.y > 0:
-		$AnimatedSprite2D.play("move_down")
-		$InteractArea2D.position = Vector2(0,8)
-	
-	elif velocity.x > 0 && velocity.y < 0:
-		$AnimatedSprite2D.play("move_upright")
-		$InteractArea2D.position = Vector2(6,-8)
+		if velocity.x > 0 && velocity.y == 0:
+			$AnimatedSprite2D.play("move_right")
+			$InteractArea2D.position = Vector2(6,0)
+			
+		elif velocity.x < 0 && velocity.y == 0:
+			$AnimatedSprite2D.play("move_left")
+			$InteractArea2D.position = Vector2(-6,0)
+			
+		elif velocity.x == 0 && velocity.y < 0:
+			$AnimatedSprite2D.play("move_up")
+			$InteractArea2D.position = Vector2(0,-8)
+			
+		elif velocity.x == 0 && velocity.y > 0:
+			$AnimatedSprite2D.play("move_down")
+			$InteractArea2D.position = Vector2(0,8)
 		
-	elif velocity.x < 0 && velocity.y < 0:
-		$AnimatedSprite2D.play("move_upleft")
-		$InteractArea2D.position = Vector2(-6,-8)
+		elif velocity.x > 0 && velocity.y < 0:
+			$AnimatedSprite2D.play("move_upright")
+			$InteractArea2D.position = Vector2(6,-8)
+			
+		elif velocity.x < 0 && velocity.y < 0:
+			$AnimatedSprite2D.play("move_upleft")
+			$InteractArea2D.position = Vector2(-6,-8)
+			
+		elif velocity.x > 0 && velocity.y > 0:
+			$AnimatedSprite2D.play("move_downright")
+			$InteractArea2D.position = Vector2(6,8)
+			
+		elif velocity.x < 0 && velocity.y > 0:
+			$AnimatedSprite2D.play("move_downleft")
+			$InteractArea2D.position = Vector2(-6,8)
 		
-	elif velocity.x > 0 && velocity.y > 0:
-		$AnimatedSprite2D.play("move_downright")
-		$InteractArea2D.position = Vector2(6,8)
-		
-	elif velocity.x < 0 && velocity.y > 0:
-		$AnimatedSprite2D.play("move_downleft")
-		$InteractArea2D.position = Vector2(-6,8)
-	
-	else:
-		$AnimatedSprite2D.stop()
+		else:
+			$AnimatedSprite2D.stop()
 	
 	move_and_slide()
 

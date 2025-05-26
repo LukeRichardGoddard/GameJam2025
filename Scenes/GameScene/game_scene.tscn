@@ -997,8 +997,8 @@ position = Vector2(62, -37)
 [node name="Bunnies" type="Node" parent="ObstacleLayer"]
 
 [node name="SceneEntrance" parent="." instance=ExtResource("6_lhg8j")]
-position = Vector2(-392, 220)
-player_spawn_position = Vector2(0, 52)
+position = Vector2(-392, 217)
+player_spawn_position = Vector2(0, -40)
 
 [node name="NewBunnyTimer" type="Timer" parent="."]
 

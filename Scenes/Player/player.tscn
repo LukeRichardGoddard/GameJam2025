@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://ccwnnfvhrmkmc"]
+[gd_scene load_steps=37 format=3 uid="uid://ccwnnfvhrmkmc"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_he0an"]
 [ext_resource type="Texture2D" uid="uid://dwjvxad5c8rlw" path="res://Cup Nooble - Asset Pack/sprite sheets/1_character_spritesheet_by-cupnooble.png" id="1_u58df"]
 [ext_resource type="Texture2D" uid="uid://byxilfkxmilet" path="res://Cup Nooble - Asset Pack/ui/Inventory_Light_Herat_Spritesheet.png" id="3_5mjal"]
 [ext_resource type="Texture2D" uid="uid://hwoys4n4uj7u" path="res://Graphics/magdum/carrot_upright_16.png" id="4_rtvp1"]
 [ext_resource type="Texture2D" uid="uid://dbbv46t2cqpwr" path="res://Cup Nooble - Asset Pack/sprite sheets/Teemo_spritesheet_by-cupnooble.png" id="5_u3r4d"]
+[ext_resource type="Texture2D" uid="uid://v2vl6i5k55on" path="res://Graphics/MSavioti/clock.png" id="6_4w2o3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tfey6"]
 radius = 5.0
@@ -283,7 +284,6 @@ shape = SubResource("RectangleShape2D_8goee")
 debug_color = Color(0.882826, 0.0754501, 0.788736, 0.42)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 855.0
@@ -332,6 +332,37 @@ offset_top = 2.0
 offset_right = 249.0
 offset_bottom = 60.0
 text = "99"
+label_settings = SubResource("LabelSettings_hm6s0")
+
+[node name="TimerPanel" type="Panel" parent="CanvasLayer"]
+offset_left = 613.0
+offset_right = 815.0
+offset_bottom = 77.0
+
+[node name="PanelTextureRect" type="TextureRect" parent="CanvasLayer/TimerPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.8, 2)
+texture = SubResource("AtlasTexture_vql0n")
+flip_v = true
+
+[node name="TimerTextureRect" type="TextureRect" parent="CanvasLayer/TimerPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 11.0
+offset_right = 72.0
+offset_bottom = 51.0
+texture = ExtResource("6_4w2o3")
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/TimerPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 80.0
+offset_top = 2.0
+offset_right = 163.0
+offset_bottom = 60.0
+text = "0:00"
 label_settings = SubResource("LabelSettings_hm6s0")
 
 [connection signal="body_entered" from="InteractArea2D" to="." method="_on_area_2d_body_entered"]
