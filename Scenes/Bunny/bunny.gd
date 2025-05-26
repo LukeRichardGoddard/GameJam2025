@@ -82,8 +82,6 @@ func _process(_delta: float) -> void:
 				unpause_dialog()
 			else:
 				feed_bunny()
-				#$CanvasLayer/DialogLabel.text = "Thanks for the carrot!"
-				#pause_for_dialog()
 		elif not has_been_fed:
 			if $CanvasLayer.visible:
 				unpause_dialog()
