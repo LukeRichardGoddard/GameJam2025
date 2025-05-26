@@ -31,32 +31,31 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func animate_bunny():
-	# TODO: add tolerance for cardinal direction movement
 	current_position = position
 	current_velocity = velocity
 	velocity_norm = velocity.normalized()
-	if velocity.x > 0 && velocity.y == 0:
+	if velocity_norm.x > 0.5 && (velocity_norm.y < 0.5 && velocity_norm.y > -0.5):
 		$AnimatedSprite2D.play("move_right")
 		
-	elif velocity.x < 0 && velocity.y == 0:
+	elif velocity_norm.x < -0.5 && (velocity_norm.y < 0.5 && velocity_norm.y > -0.5):
 		$AnimatedSprite2D.play("move_left")
 		
-	elif velocity.x == 0 && velocity.y < 0:
+	elif (velocity_norm.x < 0.5 && velocity_norm.x > -0.5) && velocity_norm.y < -0.5:
 		$AnimatedSprite2D.play("move_up")
 		
-	elif velocity.x == 0 && velocity.y > 0:
+	elif (velocity_norm.x < 0.5 && velocity_norm.x > -0.5) && velocity_norm.y > 0.5:
 		$AnimatedSprite2D.play("move_down")
 	
-	elif velocity.x > 0 && velocity.y < 0:
+	elif velocity_norm.x > 0.5 && velocity_norm.y < -0.5:
 		$AnimatedSprite2D.play("move_upright")
 		
-	elif velocity.x < 0 && velocity.y < 0:
+	elif velocity_norm.x < -0.5 && velocity_norm.y < -0.5:
 		$AnimatedSprite2D.play("move_upleft")
 		
-	elif velocity.x > 0 && velocity.y > 0:
+	elif velocity_norm.x > 0.5 && velocity_norm.y > 0.5:
 		$AnimatedSprite2D.play("move_downright")
 		
-	elif velocity.x < 0 && velocity.y > 0:
+	elif velocity_norm.x < -0.5 && velocity_norm.y > 0.5:
 		$AnimatedSprite2D.play("move_downleft")
 	else:
 		$AnimatedSprite2D.stop()
