@@ -254,7 +254,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="BrownBunny" type="StaticBody2D" groups=["interactable"]]
 process_mode = 3
 script = ExtResource("1_iipio")
-dialog_lines = Array[String](["We have so many hungry bunnies!", "Can you please get some carrots to feed them?"])
+dialog_lines = Array[String](["We have so many hungry bunnies!", "Can you please get some carrots to feed them?", "Look for a cave with lots of carrots", "Be quick or there will be more mouths to feed!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_txv1u")

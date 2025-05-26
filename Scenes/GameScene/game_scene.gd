@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var user_interface: Control = $UserInterface
+@onready var user_interface: Control = $CanvasLayer/UserInterface
 
 const STARTING_BUNNIES: int = 3
 
@@ -51,13 +51,13 @@ func _exit_tree() -> void:
 		for child in $ObstacleLayer/Bunnies.get_children():
 			child.spawn_position = child.position
 			#move somewhere far away to prevent collisions
-			child.position = Vector2(1000,1000)
+			child.position = Vector2(10000,10000)
 			child.reparent(SceneManager.bunnies)
 	if not $Plots.get_child_count() == 0:
 		for child in $Plots.get_children():
 			child.spawn_position = child.position
 			#move somewhere far away to prevent collisions
-			child.position = Vector2(1000,1000)
+			child.position = Vector2(10000,10000)
 			child.time = child.grow_timer.wait_time
 			child.reparent(SceneManager.plots)
 	if SceneManager.music_on:
