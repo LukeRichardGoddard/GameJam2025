@@ -63,11 +63,11 @@ func animate_bunny():
 
 func randomiseDestination():
 	randomize()
-	destination = Vector2(randi() % 16 * 10, randi() % 16 * 5)
+	destination = Vector2(randi() % 16 * 30 - 160, randi() % 16 * -14 + 64)
 	
 func randomisePosition():
 	randomize()
-	position = Vector2(randi() % 16 * 10, randi() % 16 * 5)
+	position = Vector2(randi() % 16 * 30 - 160, randi() % 16 * -14 + 64)
 
 func _ready() -> void:
 	carrot_tween.tween_property($NeedsCarrot, "modulate:a", 0, 2).from_current()

@@ -22,11 +22,12 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("debug_add_bunny"):
+		new_bunny()
 
 func new_bunny():
 	var instant_bunny = bunny_scene.instantiate()
-	instant_bunny.position = Vector2(randi() % 16 * 10, randi() % 16 * 5)
+	instant_bunny.position = Vector2(randi() % 16 * 30 - 160, randi() % 16 * -14 + 64)
 	instant_bunny.spawn_position = instant_bunny.position
 	instant_bunny.name = "Bunny" + str(SceneManager.bunny_count)
 	$ObstacleLayer/Bunnies.add_child(instant_bunny)
@@ -61,6 +62,7 @@ func _exit_tree() -> void:
 			child.position = Vector2(10000,10000)
 			child.time = child.grow_timer.wait_time
 			child.reparent(SceneManager.plots)
+	SceneManager.player_spawn_position = Vector2(0,44)
 	if SceneManager.music_on:
 		SceneManager.outdoor_music_time = SceneManager.outdoor_music.get_playback_position()
 		SceneManager.outdoor_music.stop()
@@ -72,3 +74,4 @@ func _on_new_bunny_timer_timeout() -> void:
 			$Sounds/BunnyEnter.play()
 		new_bunny()
 		$NewBunnyTimer.wait_time = randf() * 10
+		

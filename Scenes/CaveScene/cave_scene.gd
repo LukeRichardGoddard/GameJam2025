@@ -12,6 +12,7 @@ func _process(_delta: float) -> void:
 	pass
 	
 func _exit_tree() -> void:
+	SceneManager.player_spawn_position = Vector2(-392,242)
 	if SceneManager.music_on:
 		SceneManager.cave_music_time = SceneManager.cave_music.get_playback_position()
 		SceneManager.cave_music.stop()
