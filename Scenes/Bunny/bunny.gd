@@ -80,6 +80,8 @@ func feed_bunny():
 	has_been_fed = true
 	if SceneManager.bunny_count == 0:
 		#add win condition here
+		if SceneManager.sound_on:
+			$Sounds/Won.play()
 		SceneManager.has_quest = true
 
 func _on_timer_timeout() -> void:

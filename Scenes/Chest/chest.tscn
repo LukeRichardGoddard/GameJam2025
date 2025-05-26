@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/Chest/chest.gd" id="1_8u4wl"]
 [ext_resource type="Texture2D" uid="uid://bbbowwfhf25br" path="res://Graphics/submission_daneeklu/tilesets/plants.png" id="3_bln81"]
 [ext_resource type="Texture2D" uid="uid://dj6u73txcejgo" path="res://Graphics/CharlesGabriel/dialog_box_alpha.png" id="4_3fdbn"]
-[ext_resource type="AudioStream" uid="uid://d2jjbuu32i5x8" path="res://Sounds/Brandon Morris/completetask_0.mp3" id="5_7cfbc"]
+[ext_resource type="AudioStream" uid="uid://c3ul0351h5rer" path="res://Sounds/artisticdude/door.wav" id="5_m1ra1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_skxgh"]
 atlas = ExtResource("1_0fylm")
@@ -88,6 +88,6 @@ label_settings = SubResource("LabelSettings_ghpyx")
 [node name="Sounds" type="Node" parent="."]
 
 [node name="OpenChest" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("5_7cfbc")
+stream = ExtResource("5_m1ra1")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

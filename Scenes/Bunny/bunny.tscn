@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bca87ptrvwtps"]
+[gd_scene load_steps=35 format=3 uid="uid://bca87ptrvwtps"]
 
 [ext_resource type="Texture2D" uid="uid://dbbv46t2cqpwr" path="res://Cup Nooble - Asset Pack/sprite sheets/Teemo_spritesheet_by-cupnooble.png" id="1_iyeeg"]
 [ext_resource type="Script" path="res://Scenes/Bunny/bunny.gd" id="1_j457d"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hwoys4n4uj7u" path="res://Graphics/magdum/carrot_upright_16.png" id="3_32mm5"]
 [ext_resource type="AudioStream" uid="uid://bgrmaueql0j2c" path="res://Sounds/NenadSimic/Menu Selection Click.wav" id="5_ujqel"]
 [ext_resource type="AudioStream" uid="uid://b02xlwshkngbj" path="res://Sounds/AntumDeluge/bite.mp3" id="6_qw0in"]
+[ext_resource type="AudioStream" uid="uid://ndmomlprjh53" path="res://Sounds/congusbongus/newthingget.ogg" id="7_70ae3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txv1u"]
 radius = 7.0
@@ -311,6 +312,9 @@ stream = ExtResource("5_ujqel")
 
 [node name="EatCarrot" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("6_qw0in")
+
+[node name="Won" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_70ae3")
 
 [connection signal="body_entered" from="BunnyCollider" to="." method="_on_bunny_collider_body_entered"]
 [connection signal="timeout" from="MoveTimer" to="." method="_on_timer_timeout"]
