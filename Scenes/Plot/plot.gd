@@ -28,7 +28,7 @@ func get_carrot():
 	start_growing()
 	
 func start_growing():
-	grow_timer.wait_time = randf() * 50.0
+	grow_timer.wait_time = randf() * 30.0 + 5
 	grow_timer.start()
 
 func _on_grow_timer_timeout() -> void:
