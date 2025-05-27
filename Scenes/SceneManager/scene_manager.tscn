@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bd6vho4s3winr" path="res://Scenes/EndScreen/end_screen.tscn" id="4_mc8al"]
 
 [node name="SceneManager" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_cfej8")
 
 [node name="Bunnies" type="Node" parent="."]

@@ -49,7 +49,6 @@ func _unhandled_input(_event: InputEvent) -> void:
 		restart_game()
 
 func restart_game():
-	print("restarting")
 	start_game = true
 	has_quest = true
 	game_won = false
@@ -60,5 +59,6 @@ func restart_game():
 	play_time = 0.0
 	restarting = true
 	end_screen.visible = false
+	timer_running = true
 	get_tree().reload_current_scene()
 	

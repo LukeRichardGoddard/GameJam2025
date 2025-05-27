@@ -313,7 +313,7 @@ offset_left = 72.0
 offset_top = 2.0
 offset_right = 120.0
 offset_bottom = 60.0
-text = "99"
+text = "0"
 label_settings = SubResource("LabelSettings_hm6s0")
 
 [node name="BunnyTextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
@@ -331,7 +331,7 @@ offset_left = 201.0
 offset_top = 2.0
 offset_right = 249.0
 offset_bottom = 60.0
-text = "99"
+text = "3"
 label_settings = SubResource("LabelSettings_hm6s0")
 
 [node name="TimerPanel" type="Panel" parent="CanvasLayer"]

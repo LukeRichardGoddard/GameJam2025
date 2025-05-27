@@ -17,7 +17,7 @@ func _ready() -> void:
 	if not SceneManager.restarting:
 		bunny_loader()
 		plot_loader()
-		SceneManager.restarting = false
+	SceneManager.restarting = false
 	if SceneManager.start_game:
 		for i in STARTING_BUNNIES:
 			new_bunny()
@@ -61,19 +61,20 @@ func plot_loader():
 			child.reparent($Plots)
 	
 func _exit_tree() -> void:
-	if not $ObstacleLayer/Bunnies.get_child_count() == 0:
-		for child in $ObstacleLayer/Bunnies.get_children():
-			child.spawn_position = child.position
-			#move somewhere far away to prevent collisions
-			child.position = FAR_FAR_AWAY
-			child.reparent(SceneManager.bunnies)
-	if not $Plots.get_child_count() == 0:
-		for child in $Plots.get_children():
-			child.spawn_position = child.position
-			#move somewhere far away to prevent collisions
-			child.position = FAR_FAR_AWAY
-			child.time = child.grow_timer.wait_time
-			child.reparent(SceneManager.plots)
+	if not SceneManager.restarting:
+		if not $ObstacleLayer/Bunnies.get_child_count() == 0:
+			for child in $ObstacleLayer/Bunnies.get_children():
+				child.spawn_position = child.position
+				#move somewhere far away to prevent collisions
+				child.position = FAR_FAR_AWAY
+				child.reparent(SceneManager.bunnies)
+		if not $Plots.get_child_count() == 0:
+			for child in $Plots.get_children():
+				child.spawn_position = child.position
+				#move somewhere far away to prevent collisions
+				child.position = FAR_FAR_AWAY
+				child.time = child.grow_timer.wait_time
+				child.reparent(SceneManager.plots)
 	SceneManager.player_spawn_position = CAVE_SPAWN
 	if SceneManager.music_on:
 		SceneManager.outdoor_music_time = SceneManager.outdoor_music.get_playback_position()
