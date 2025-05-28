@@ -102,6 +102,9 @@ func feed_bunny():
 	SceneManager.carrot_count -= 1
 	SceneManager.bunny_count -= 1
 	$NeedsCarrot.visible = false
+	
+	$BunnyCollider/CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = true
 	carrot_tween.stop()
 	
 	var bunny_tween = create_tween()
