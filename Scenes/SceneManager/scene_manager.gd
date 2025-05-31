@@ -1,6 +1,11 @@
 extends Node2D
 
 @onready var end_screen: Control = $CanvasLayer/EndScreen
+@onready var bunnies: Node = $Bunnies
+@onready var plots: Node = $Plots
+@onready var outdoor_music: AudioStreamPlayer = $Music/Outdoor
+@onready var cave_music: AudioStreamPlayer = $Music/Cave
+@onready var play_timer: Timer = $PlayTimer
 
 var player_spawn_position: Vector2
 
@@ -13,25 +18,13 @@ var restarting: bool = false
 var carrot_count: int = 0
 var bunny_count: int = 0
 var total_bunny_count: int = 0
-var bunnies: Node
-var plots: Node
-var outdoor_music: AudioStreamPlayer
 var outdoor_music_time: float = 0.0
-var cave_music: AudioStreamPlayer
 var cave_music_time: float = 0.0
-var play_timer: Timer
 var play_time: float = 0.0
 var timer_running: bool = true
 
 var music_on: bool = true
 var sound_on: bool = true
-
-func _ready() -> void:
-	bunnies = $Bunnies
-	plots = $Plots
-	outdoor_music = $Music/Outdoor
-	cave_music = $Music/Cave
-	play_timer = $PlayTimer
 
 func _process(delta: float) -> void:
 	if timer_running:
