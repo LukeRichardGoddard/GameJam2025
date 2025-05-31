@@ -15,10 +15,12 @@ func open_menu():
 	%SoundFXButton.button_pressed = SceneManager.sound_on
 	%MusicButton.button_pressed = SceneManager.music_on
 	user_interface.visible = true
+	SceneManager.timer_running = false
 	get_tree().paused = true
 
 func close_menu():
 	user_interface.visible = false
+	SceneManager.timer_running = true
 	get_tree().paused = false
 
 
